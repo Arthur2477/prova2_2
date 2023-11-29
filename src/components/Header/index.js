@@ -1,19 +1,15 @@
 import React from 'react'
-import {
-   View,
-   StyleSheet,
-   Text,
-   StatusBar,
-   TouchableOpacity 
-} from 'react-native'
-
+import {View,StyleSheet,Text,StatusBar,TouchableOpacity , Image} from 'react-native'
+import { Menu } from 'react-native-paper';
 import Feather from 'react-native-vector-icons/Feather';
-
+import Login from '../../pages/Login';
 import { MotiView, MotiText } from 'moti';
 
 const StatusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;
 
-export default function Header({name}){
+export default function Header({navigation,name}){
+
+
     return(
         <View style={styles.container}>
             <MotiView 
@@ -48,12 +44,13 @@ export default function Header({name}){
                 >
                     {name}
                     </MotiText>
-
-                <TouchableOpacity activeOpacity={1.5} style={styles.buttonUser}>
-                    <Feather name ="user" size={23} color="#fff"/>
-                </TouchableOpacity>
+                
+                <View activeOpacity={1.5} style={styles.buttonUser}>
+                    <Image source={require('../../../assets/nubank-1.png')} style={styles.logo} />
+                </View>
             </MotiView>
         </View>
+    
     )
 }
 
@@ -84,12 +81,17 @@ const styles = StyleSheet.create({
     buttonUser:{
        width: 44,
        height: 44,
-       backgroundColor: 'rgba(255, 255, 255, 0.5)',
        justifyContent: 'center',
        alignItems: 'center',
        borderRadius: 44/2,
        marginLeft: 14,
        marginBottom: 50,
        margin: 14
+    },
+    logo:{
+        width: 80,
+        right: 80,
+        height: 80,
+        marginLeft: 130
     }
 })

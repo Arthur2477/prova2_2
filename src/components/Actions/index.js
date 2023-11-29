@@ -1,45 +1,70 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import AntDesing from 'react-native-vector-icons/AntDesign';
+import { ScrollView, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { AntDesign } from '@expo/vector-icons';
+import {Login} from '../../pages/Login'
 
-export default function Actions() {
- return (
-   <ScrollView style={styles.container} horizontal={true} showsVerticalScrollIndicator={false} >
-    <TouchableOpacity style={styles.actionButton}>
+export default function Actions({navigation}) {
+console.log (navigation)
+
+  const handleEntradasPress = () => {
+    navigation.navigate('Entradas'); 
+  };
+
+  const handleComprasPress = () => {
+    navigation.navigate('Compras'); 
+  };
+
+  const handleCarteiraPress = () => {
+    navigation.navigate(''); 
+  };
+
+  const handleBoletosPress = () => {
+    navigation.navigate('Money'); 
+  };
+
+  const handleContaPress = () => {
+    navigation.navigate('Login'); 
+  };
+  
+
+  return (
+    <ScrollView style={styles.container} horizontal={true} showsVerticalScrollIndicator={false}>
+      <TouchableOpacity style={styles.actionButton} onPress={handleEntradasPress}>
         <View style={styles.areaButton}>
-            <AntDesing name='addfolder' size={26} color='#000'/>
+          <AntDesign name='addfolder' size={26} color='#000' />
         </View>
         <Text style={styles.buttonlabel}>Entradas</Text>
-    </TouchableOpacity>
+      </TouchableOpacity>
 
-    <TouchableOpacity style={styles.actionButton}>
+      <TouchableOpacity style={styles.actionButton} onPress={handleComprasPress}>
         <View style={styles.areaButton}>
-            <AntDesing name='tagso' size={26} color='#000'/>
+          <AntDesign name='tagso' size={26} color='#000' />
         </View>
         <Text style={styles.buttonlabel}>Compras</Text>
-    </TouchableOpacity>
+      </TouchableOpacity>
 
-    <TouchableOpacity style={styles.actionButton}>
+      <TouchableOpacity style={styles.actionButton} onPress={handleCarteiraPress}>
         <View style={styles.areaButton}>
-            <AntDesing name='creditcard' size={26} color='#000'/>
+          <AntDesign name='creditcard' size={26} color='#000' />
         </View>
         <Text style={styles.buttonlabel}>Carteira</Text>
-    </TouchableOpacity>
+      </TouchableOpacity>
 
-    <TouchableOpacity style={styles.actionButton}>
+      <TouchableOpacity style={styles.actionButton} onPress={handleBoletosPress}>
         <View style={styles.areaButton}>
-            <AntDesing name='barcode' size={26} color='#000'/>
+          <AntDesign name='barcode' size={26} color='#000' />
         </View>
         <Text style={styles.buttonlabel}>Boletos</Text>
-    </TouchableOpacity>
+      </TouchableOpacity>
 
-    <TouchableOpacity style={styles.actionButton}>
+      <TouchableOpacity style={styles.actionButton} onPress={handleContaPress}>
         <View style={styles.areaButton}>
-            <AntDesing name='setting' size={26} color='#000'/>
+          <AntDesign name='user' size={26} color='#000' />
         </View>
-        <Text style={styles.buttonlabel}>Conta</Text>
-    </TouchableOpacity>
-   </ScrollView>
+        <Text style={styles.buttonlabel}>Login</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 

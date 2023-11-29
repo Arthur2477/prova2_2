@@ -5,6 +5,7 @@ import Balance from '../../components/Balance';
 import Moviments from '../../components/Moviments';
 import Actions from '../../components/Actions';
 
+export default function Home({navigation}) {
 
 const list = [{
 
@@ -27,13 +28,11 @@ const list = [{
   type: 1
 }
 ]
-
-export default function Home() {
   return (
     <View style={styles.container}>
       <Header name= 'Arthur Rodrigues'/>
       <Balance saldo='9.250.90' gastos='-527,00'/>
-      <Actions />
+      <Actions navigation={navigation}/>
       <Text style={styles.title}>Últimas Movimentações</Text>
       <FlatList
       style={styles.list}
@@ -49,7 +48,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fafafa',
+    backgroundColor: '#fff',
   },
   title:{
     fontSize: 18,
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
     margin: 14
   },
   list:{
-    marginStart: 14,
-    marginEnd: 14
+    marginStart: 5,
+    marginEnd: 5
   }
 });
